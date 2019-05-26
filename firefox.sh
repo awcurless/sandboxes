@@ -1,0 +1,33 @@
+#!/bin/bash
+(exec bwrap \
+    --ro-bind /usr/lib /usr/lib \
+    --ro-bind /usr/bin /usr/bin \
+    --ro-bind /usr/lib64 /usr/lib64 \
+    --ro-bind /usr/share /usr/share \
+    --ro-bind /lib32 /lib32 \
+    --ro-bind /bin /bin \
+    --ro-bind /lib64 /lib64 \
+    --ro-bind /lib /lib \
+    --ro-bind /etc/ld.so.conf.d /etc/ld.so.conf.d \
+    --ro-bind /etc/ld.so.conf /etc/ld.so.conf \
+    --ro-bind /etc/ld.so.cache /etc/ld.so.cache \
+    --ro-bind /etc/ld.so.preload /etc/ld.so.preload \
+    --ro-bind /etc/fonts /etc/fonts \
+    --ro-bind /etc/resolv.conf /etc/resolv.conf \
+    --ro-bind /opt/firefox /opt/firefox \
+    --tmpfs ${HOME} \
+    --ro-bind ${HOME}/.Xauthority ${HOME}/.Xauthority \
+    --bind ${HOME}/.mozilla ${HOME}/.mozilla \
+    --bind ${HOME}/.cache/mozilla ${HOME}/.cache/mozilla \
+    --bind /tmp/.X11-unix/X0 /tmp/.X11-unix/X0 \
+    --tmpfs /tmp \
+    --tmpfs /run \
+    --setenv DISPLAY :0 \
+    --proc /proc \
+    --dev /dev \
+    --unshare-ipc \
+    --unshare-user \
+    --unshare-pid \
+    --unshare-uts \
+    --unshare-cgroup \
+    /usr/bin/firefox-bin $@)
