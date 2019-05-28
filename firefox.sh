@@ -17,6 +17,7 @@
     --ro-bind /opt/firefox /opt/firefox \
     --tmpfs ${HOME} \
     --ro-bind ${HOME}/.Xauthority ${HOME}/.Xauthority \
+    --bind ${HOME}/Downloads ${HOME}/Downloads \
     --bind ${HOME}/.mozilla ${HOME}/.mozilla \
     --bind ${HOME}/.cache/mozilla ${HOME}/.cache/mozilla \
     --bind /tmp/.X11-unix/X0 /tmp/.X11-unix/X0 \
