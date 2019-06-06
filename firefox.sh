@@ -4,7 +4,6 @@
     --ro-bind /usr/bin /usr/bin \
     --ro-bind /usr/lib64 /usr/lib64 \
     --ro-bind /usr/share /usr/share \
-    --ro-bind /lib32 /lib32 \
     --ro-bind /bin /bin \
     --ro-bind /lib64 /lib64 \
     --ro-bind /lib /lib \
