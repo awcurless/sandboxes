@@ -13,7 +13,6 @@
     --ro-bind /etc/ld.so.preload /etc/ld.so.preload \
     --ro-bind /etc/fonts /etc/fonts \
     --ro-bind /etc/resolv.conf /etc/resolv.conf \
-    --ro-bind /opt/firefox /opt/firefox \
     --tmpfs ${HOME} \
     --ro-bind ${HOME}/.Xauthority ${HOME}/.Xauthority \
     --bind ${HOME}/Downloads ${HOME}/Downloads \
@@ -30,4 +29,4 @@
     --unshare-pid \
     --unshare-uts \
     --unshare-cgroup \
-    /usr/bin/firefox-bin $@)
+    /usr/bin/firefox $@)
