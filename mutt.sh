@@ -20,7 +20,7 @@
     --ro-bind ${HOME}/.gnupg ${HOME}/.gnupg \
     --ro-bind ${HOME}/.w3m ${HOME}/.w3m \
     --ro-bind ${HOME}/.vim ${HOME}/.vim \
-    --ro-bind /proc/stat /proc/stat \
+    --proc /proc \
     --bind /var/tmp/.mutt /var/tmp/.mutt \
     --bind /var/tmp/.mutt-lock /var/tmp/.mutt-lock \
     --dev /dev \
