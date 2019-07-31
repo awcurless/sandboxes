@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+(exec bwrap \
+    --ro-bind /usr/bin /usr/bin \
+    --ro-bind /usr/lib64 /usr/lib64 \
+    --ro-bind /bin /bin \
+    --ro-bind /lib64 /lib64 \
+    --ro-bind /etc/ld.so.conf.d /etc/ld.so.conf.d \
+    --ro-bind /etc/ld.so.conf /etc/ld.so.conf \
+    --ro-bind /etc/ld.so.cache /etc/ld.so.cache \
+    --ro-bind /etc/ld.so.preload /etc/ld.so.preload \
+    --ro-bind /etc/resolv.conf /etc/resolv.conf \
+    --ro-bind /etc/ssl /etc/ssl \
+    --ro-bind /etc/terminfo /etc/terminfo \
+    --bind /etc/mutt /etc/mutt \
+    --tmpfs $HOME \
+    --ro-bind $HOME/.Xauthority $HOME/.Xauthority \
+    --ro-bind ${HOME}/.config/mutt ${HOME}/.config/mutt \
+    --ro-bind ${HOME}/.config/secrets ${HOME}/.config/secrets \
+    --ro-bind ${HOME}/.msmtprc ${HOME}/.msmtprc \
+    --ro-bind ${HOME}/.gnupg ${HOME}/.gnupg \
+    --ro-bind ${HOME}/.w3m ${HOME}/.w3m \
+    --ro-bind ${HOME}/.vim ${HOME}/.vim \
+    --ro-bind /proc/stat /proc/stat \
+    --bind /var/tmp/.mutt /var/tmp/.mutt \
+    --bind /var/tmp/.mutt-lock /var/tmp/.mutt-lock \
+    --dev /dev \
+    --tmpfs /tmp \
+    --ro-bind /tmp/.X11-unix/X0 /tmp/.X11-unix/X0 \
+    --unshare-all \
+    --share-net \
+    /usr/bin/mutt "$@")
