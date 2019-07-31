@@ -12,6 +12,7 @@
     --ro-bind $HOME/.Xauthority $HOME/.Xauthority \
     --ro-bind $HOME/documents $HOME/documents \
     --ro-bind $HOME/pictures $HOME/pictures \
+    --ro-bind $HOME/Downloads $HOME/Downloads \
     --ro-bind $HOME/dotfiles/backgrounds ${HOME}/dotfiles/backgrounds \
     --tmpfs /tmp \
     --ro-bind /tmp/.X11-unix/X0 /tmp/.X11-unix/X0 \
